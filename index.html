@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多媒體動畫設計個人作品集 | 3D Modeling & Animation Portfolio</title>
+  <meta name="description" content="多媒體動畫系學生個人作品集，專注於 3D 建模、場景製作、模型製作與視覺藝術。">
+
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 暗紫色鼠標光點 (Dark Purple Cursor Luminous Dot) -->
+  <div id="cursorDot" class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- 幾何氛圍網格背景 (3D Viewport Grid) -->
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+  <div class="bg-aurora-glow" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       頂部導覽列 (NAVIGATION BAR)
+       ========================================================================== -->
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a href="#about" class="brand-logo" aria-label="返回作品集頂部">
+        <span class="logo-symbol">❖</span>
+        <span class="logo-text">PORTFOLIO</span>
+        <span class="brand-badge">3D & ANIMATION</span>
+      </a>
+
+      <!-- 導覽連結 (與標題完全一致，支援滑動切換) -->
+      <nav aria-label="主要導覽" class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link active" data-nav="about">關於我</a></li>
+          <li><a href="#skills" class="nav-link" data-nav="skills">專長技能</a></li>
+          <li><a href="#portfolio" class="nav-link" data-nav="portfolio">精選作品</a></li>
+          <li><a href="#journey" class="nav-link" data-nav="journey">學習歷程</a></li>
+          <li><a href="#experience" class="nav-link" data-nav="experience">其他經歷</a></li>
+          <li><a href="#contact" class="nav-link" data-nav="contact">與我聯絡</a></li>
+        </ul>
+      </nav>
+
+      <!-- 導覽右側按鈕區 (黑灰白三段主題換色) -->
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="切換黑灰白主題風格">
+          <span class="color-dots" aria-hidden="true">
+            <span class="color-dot dot-black"></span>
+            <span class="color-dot dot-grey"></span>
+            <span class="color-dot dot-white"></span>
+          </span>
+          <span class="theme-label">黑階深邃 (Dark)</span>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="開啟選單" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         區塊 1：關於我 (ABOUT ME)
+         ========================================================================== -->
+    <section id="about" class="hero-section section-padding">
+      <div class="container">
+
+        <div class="hero-status-bar">
+          <span class="status-indicator">
+            <span class="status-dot"></span>
+            <span class="status-text">AVAILABLE FOR 3D PROJECTS & FREELANCE</span>
+          </span>
+          <span class="hero-location-tag">TAIWAN · 2026 ACTIVE CREATOR</span>
+        </div>
+
+        <div class="hero-content">
+          <!-- 左側文字陳述 -->
+          <div class="hero-text-block">
+            <div class="section-tag">01 // INTRODUCTION</div>
+            <h1 class="hero-main-title">
+              <span class="title-primary">關於我</span>
+              <span class="title-subline">MULTIMEDIA & 3D ANIMATION ARTIST</span>
+            </h1>
+
+            <p class="hero-bio">
+              我是<strong>多媒體動畫系</strong>的學生，目前專注學習於
+              <strong>3D</strong>，對<strong>場景製作</strong>與<strong>模型製作</strong>抱有濃厚興趣，深入了解動畫製作之完整流程，並且持續累積相關專業軟體之實務操作經驗。
+            </p>
+
+            <div class="hero-tags">
+              <span class="hero-pill"><span class="pill-dot"></span>3D 場景製作</span>
+              <span class="hero-pill"><span class="pill-dot"></span>模型雕刻與建構</span>
+              <span class="hero-pill"><span class="pill-dot"></span>動畫流程整合</span>
+              <span class="hero-pill"><span class="pill-dot"></span>視覺敘事</span>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#portfolio" class="btn btn-primary">
+                <span>探索精選作品</span>
+                <span class="btn-arrow">↓</span>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                <span>與我聯絡</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 右側 3D 擬真視口卡片 (Glassmorphic 3D Card) -->
+          <div class="hero-card-wrapper">
+            <div class="hero-visual-card" id="heroInteractiveCard">
+              <div class="card-glass-glow"></div>
+
+              <div class="card-header-bar">
+                <div class="card-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="card-system-info">VIEWPORT // PERSPECTIVE (3D)</div>
+              </div>
+
+              <div class="hero-quote-mark" aria-hidden="true">“</div>
+              <p class="hero-quote">
+                以嚴謹的空間感與細緻的模型紋理，構建充滿沉浸感與生命力的虛擬世界。
+              </p>
+
+              <!-- 軟體工具徽章 -->
+              <div class="software-chips">
+                <span class="soft-chip">Maya</span>
+                <span class="soft-chip">Blender</span>
+                <span class="soft-chip">ZBrush</span>
+                <span class="soft-chip">Substance 3D</span>
+                <span class="soft-chip">After Effects</span>
+              </div>
+
+              <!-- 統計數據 -->
+              <div class="hero-meta-stat">
+                <div class="stat-box">
+                  <div class="stat-number">3D</div>
+                  <div class="stat-label">Core Focus / 核心專案</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Passion / 創作熱忱</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-number">2026</div>
+                  <div class="stat-label">Active / 持續深造</div>
+                </div>
+              </div>
+
+              <div class="card-corner-wireframe" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         區塊 2：專長技能 (SKILLS) - 懸停字體放大 + 背景動態換色
+         ========================================================================== -->
+    <section id="skills" class="skills-section section-padding">
+      <!-- 互動動態背景層 (鼠標移上時平滑渲染該技能漸層) -->
+      <div class="skills-bg-dynamic" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="section-tag">02 // CAPABILITIES</div>
+        <div class="skills-header-flex">
+          <h2 class="section-title">專長技能</h2>
+          <div class="skills-tip-badge">
+            <span class="tip-icon">✦</span>
+            <span>HOVER TO EXPLORE STACK & SPECS</span>
+          </div>
+        </div>
+
+        <div class="skills-list">
+          <!-- 技能 1 -->
+          <div class="skill-item" data-skill="0">
+            <span class="skill-index">01</span>
+            <div class="skill-main-group">
+              <div class="skill-name-wrapper">
+                <span class="skill-name">3D 建模</span>
+                <span class="skill-en">3D Modeling & Topology</span>
+              </div>
+              <div class="skill-stack-pills">
+                <span>Maya</span>
+                <span>Blender</span>
+                <span>ZBrush</span>
+                <span>多邊形拓撲</span>
+              </div>
+            </div>
+            <p class="skill-desc">精熟多邊形拓撲結構、硬表面與有機模型塑形，兼具精準比例與高效能佈線思維。</p>
+            <div class="skill-arrow-box">
+              <span class="skill-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- 技能 2 -->
+          <div class="skill-item" data-skill="1">
+            <span class="skill-index">02</span>
+            <div class="skill-main-group">
+              <div class="skill-name-wrapper">
+                <span class="skill-name">角色設計</span>
+                <span class="skill-en">Character Design & Concept</span>
+              </div>
+              <div class="skill-stack-pills">
+                <span>角色概念圖</span>
+                <span>服裝造型</span>
+                <span>動態姿勢</span>
+                <span>世界觀設定</span>
+              </div>
+            </div>
+            <p class="skill-desc">著重角色原創世界觀、輪廓張力與性格細節刻劃，將抽象概念轉化為鮮活實體。</p>
+            <div class="skill-arrow-box">
+              <span class="skill-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- 技能 3 -->
+          <div class="skill-item" data-skill="2">
+            <span class="skill-index">03</span>
+            <div class="skill-main-group">
+              <div class="skill-name-wrapper">
+                <span class="skill-name">影像後製</span>
+                <span class="skill-en">Post-Production & Compositing</span>
+              </div>
+              <div class="skill-stack-pills">
+                <span>After Effects</span>
+                <span>Premiere Pro</span>
+                <span>分層合成</span>
+                <span>電影色調</span>
+              </div>
+            </div>
+            <p class="skill-desc">光影調色、景深合成、特效微調與鏡頭層次堆疊，大幅強化動態畫面之電影質感。</p>
+            <div class="skill-arrow-box">
+              <span class="skill-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- 技能 4 -->
+          <div class="skill-item" data-skill="3">
+            <span class="skill-index">04</span>
+            <div class="skill-main-group">
+              <div class="skill-name-wrapper">
+                <span class="skill-name">插畫繪製</span>
+                <span class="skill-en">Digital Illustration & Matte</span>
+              </div>
+              <div class="skill-stack-pills">
+                <span>Photoshop</span>
+                <span>光影佈局</span>
+                <span>場景氛圍</span>
+              </div>
+            </div>
+            <p class="skill-desc">熟練手繪數位繪圖技巧，掌握精準骨架、光線流動及氛圍圖（Concept Art）繪製。</p>
+            <div class="skill-arrow-box">
+              <span class="skill-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- 技能 5 -->
+          <div class="skill-item" data-skill="4">
+            <span class="skill-index">05</span>
+            <div class="skill-main-group">
+              <div class="skill-name-wrapper">
+                <span class="skill-name">版面編排</span>
+                <span class="skill-en">Editorial & Layout Design</span>
+              </div>
+              <div class="skill-stack-pills">
+                <span>柵格系統</span>
+                <span>字體層級</span>
+                <span>視覺動線</span>
+                <span>極簡留白</span>
+              </div>
+            </div>
+            <p class="skill-desc">靈活運用字體學與柵格系統，講究視覺動線層次與極簡留白，呈現高階純粹美學。</p>
+            <div class="skill-arrow-box">
+              <span class="skill-arrow">↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         區塊 3：精選作品 (CENTERED CAROUSEL)
+         ========================================================================== -->
+    <section id="portfolio" class="carousel-section section-padding">
+      <div class="container">
+        <div class="carousel-header-flex">
+          <div>
+            <div class="section-tag">03 // SELECTED WORKS</div>
+            <h2 class="section-title">精選作品</h2>
+          </div>
+
+          <div class="carousel-header-actions">
+            <!-- 輪播自動播放切換按鈕 -->
+            <button id="carouselPlayBtn" class="carousel-aux-btn" aria-label="暫停/播放自動輪播">
+              <span class="play-icon">⏸</span>
+              <span class="play-label">AUTO PLAY</span>
+            </button>
+            <div class="carousel-counter">
+              <span id="currentCount" class="counter-current">01</span>
+              <span class="counter-slash">/</span>
+              <span id="totalCount" class="counter-total">04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 聚焦輪播舞台 (3D Centered Carousel Stage) -->
+      <div id="carouselStage" class="carousel-stage" role="region" aria-label="精選作品展示輪播">
+        <div class="carousel-track">
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide active" data-index="0" tabindex="0">
+            <div class="slide-card-inner">
+              <div class="slide-img-container">
+                <img src="image/c.jpg" alt="精選作品 01 - 場景概念渲染" loading="eager">
+                <div class="slide-gloss"></div>
+                <div class="slide-overlay">
+                  <div class="overlay-top">
+                    <span class="slide-badge">01 · 3D SCENE & LIGHTING</span>
+                    <button class="expand-btn" aria-label="放大查看作品 1" data-preview-index="0">
+                      <span class="expand-icon">⤢</span>
+                      <span class="expand-text">全螢幕檢視</span>
+                    </button>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h3 class="slide-title">模型製作</h3>
+                    <p class="slide-desc">探索空間層次、環境光影漫射與氛圍營造，建構沉浸式的立體空間質感。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide next" data-index="1" tabindex="0">
+            <div class="slide-card-inner">
+              <div class="slide-img-container">
+                <img src="image/des.jpg" alt="精選作品 02 - 空間與造型設計" loading="lazy">
+                <div class="slide-gloss"></div>
+                <div class="slide-overlay">
+                  <div class="overlay-top">
+                    <span class="slide-badge">02 · SPATIAL & FORM DESIGN</span>
+                    <button class="expand-btn" aria-label="放大查看作品 2" data-preview-index="1">
+                      <span class="expand-icon">⤢</span>
+                      <span class="expand-text">全螢幕檢視</span>
+                    </button>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h3 class="slide-title">場景設計</h3>
+                    <p class="slide-desc">結合幾何架構與當代造型語言，展現具結構張力的場景設計。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide hidden-right" data-index="2" tabindex="0">
+            <div class="slide-card-inner">
+              <div class="slide-img-container">
+                <img src="image/ph.jpg" alt="精選作品 03 - 角色與環境氛圍" loading="lazy">
+                <div class="slide-gloss"></div>
+                <div class="slide-overlay">
+                  <div class="overlay-top">
+                    <span class="slide-badge">03 · CHARACTER & ENVIRONMENT</span>
+                    <button class="expand-btn" aria-label="放大查看作品 3" data-preview-index="2">
+                      <span class="expand-icon">⤢</span>
+                      <span class="expand-text">全螢幕檢視</span>
+                    </button>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h3 class="slide-title">生活感插畫</h3>
+                    <p class="slide-desc">著重人物姿態與整體色溫的調和，傳遞具敘事張力的視覺氛圍。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-slide prev" data-index="3" tabindex="0">
+            <div class="slide-card-inner">
+              <div class="slide-img-container">
+                <img src="image/wine.jpg" alt="精選作品 04 - 靜物材質與電影感光影" loading="lazy">
+                <div class="slide-gloss"></div>
+                <div class="slide-overlay">
+                  <div class="overlay-top">
+                    <span class="slide-badge">04 · CINEMATIC STILL LIFE</span>
+                    <button class="expand-btn" aria-label="放大查看作品 4" data-preview-index="3">
+                      <span class="expand-icon">⤢</span>
+                      <span class="expand-text">全螢幕檢視</span>
+                    </button>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h3 class="slide-title">靜物材質與電影感光影</h3>
+                    <p class="slide-desc">精緻折射、金屬質感與鏡頭景深運算，體現對光學材質的嚴謹捕捉。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- 輪播下方控制列 -->
+        <div class="carousel-controls">
+          <div class="carousel-arrows">
+            <button id="prevBtn" class="carousel-btn" aria-label="上一個作品">
+              <span class="arrow-symbol">←</span>
+            </button>
+            <button id="nextBtn" class="carousel-btn" aria-label="下一個作品">
+              <span class="arrow-symbol">→</span>
+            </button>
+          </div>
+
+          <div id="carouselIndicators" class="carousel-indicators">
+            <!-- 由 JS 動態生成指示條 -->
+          </div>
+
+          <div class="carousel-hint">
+            <span class="hint-dot"></span>
+            <span>支援滑鼠拖曳 (DRAG) · 方向鍵 (← →) · 點擊側邊快速切換</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         區塊 4：學習歷程 (LEARNING JOURNEY) - 時間軸進程設計
+         ========================================================================== -->
+    <section id="journey" class="journey-section section-padding">
+      <div class="container">
+        <div class="section-tag">04 // LEARNING PATH</div>
+        <div class="journey-header-flex">
+          <h2 class="section-title">學習歷程</h2>
+          <div class="timeline-indicator">
+            <span class="timeline-pulse"></span>
+            <span>ACADEMIC & PROFESSIONAL PROGRESSION</span>
+          </div>
+        </div>
+
+        <div class="journey-timeline">
+          <!-- 連結進度軌道線 -->
+          <div class="timeline-track-line" aria-hidden="true"></div>
+
+          <div class="journey-grid">
+            <!-- 大一 -->
+            <div class="journey-card">
+              <div class="journey-node">
+                <span class="node-circle"></span>
+                <span class="node-year">PHASE 01</span>
+              </div>
+              <div class="journey-content-box">
+                <div class="journey-stage">
+                  <span class="stage-en">FOUNDATION</span>
+                  <span class="stage-pill">大一</span>
+                </div>
+                <h3 class="journey-title">基礎能力建立</h3>
+                <p class="journey-desc">
+                  系統化學習 <strong>2D
+                    動畫製作</strong>、<strong>分鏡設計</strong>、<strong>數位繪圖</strong>以及<strong>影像後製處理</strong>，奠定扎實的畫面節奏感與視覺敘事基石。
+                </p>
+                <div class="journey-tags">
+                  <span>2D 動畫</span>
+                  <span>分鏡腳本</span>
+                  <span>色彩學</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 目前 (焦點高亮) -->
+            <div class="journey-card active-stage">
+              <div class="journey-node">
+                <span class="node-circle glowing"></span>
+                <span class="node-year active-year">ACTIVE NOW</span>
+              </div>
+              <div class="journey-content-box highlight-box">
+                <div class="journey-stage current">
+                  <span class="stage-en">CURRENT FOCUS</span>
+                  <span class="stage-pill active-pill">目前</span>
+                </div>
+                <h3 class="journey-title">3D 技術學習</h3>
+                <p class="journey-desc">
+                  專注於 <strong>3D 建模</strong>、<strong>場景製作</strong>與<strong>模型製作</strong>，深究多邊形拓撲佈線、材質紋理刻劃以及虛擬打光等專業製程。
+                </p>
+                <div class="journey-tags">
+                  <span class="tag-accent">3D 建模</span>
+                  <span class="tag-accent">場景繪製</span>
+                  <span class="tag-accent">光影設計</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 未來 -->
+            <div class="journey-card">
+              <div class="journey-node">
+                <span class="node-circle"></span>
+                <span class="node-year">PHASE 03</span>
+              </div>
+              <div class="journey-content-box">
+                <div class="journey-stage">
+                  <span class="stage-en">FUTURE GOAL</span>
+                  <span class="stage-pill">未來</span>
+                </div>
+                <h3 class="journey-title">作品累積</h3>
+                <p class="journey-desc">
+                  透過<strong>動畫專題</strong>與<strong>個人創作</strong>，持之以恆累積多元作品集，精進製作水準與完整度，邁向專業創作者。
+                </p>
+                <div class="journey-tags">
+                  <span>專題製作</span>
+                  <span>風格原創</span>
+                  <span>業界接軌</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         區塊 5：其他經歷 (OTHER EXPERIENCE) - 聽打員焦點排版
+         ========================================================================== -->
+    <section id="experience" class="experience-section section-padding">
+      <div class="container">
+        <div class="section-tag">05 // EXPERIENCE</div>
+        <h2 class="section-title">其他經歷</h2>
+
+        <div class="experience-hero-box">
+          <!-- 聽打經歷核心說明 -->
+          <div class="experience-intro">
+            <div class="experience-role-badge">
+              <span class="badge-icon">⌨</span>
+              <span>SPECIALIZED ROLE</span>
+            </div>
+
+            <h3 class="experience-role">聽打員工作經歷</h3>
+            <p class="experience-body">
+              目前擔任<strong>聽打員</strong>，藉由的聲音文字即時轉化，全面培養<strong>專注力</strong>與<strong>打字速度</strong>，以此紮實提升文書處理能力與細節敏銳度，轉化為
+              3D 專案製作時不可或缺的嚴謹耐心與高效執行力。
+            </p>
+
+            <!-- 聽打聲波與即時動態模擬 EQ -->
+            <div class="audio-wave-visualizer" aria-hidden="true">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <span class="wave-status">AUDIO TRANSCRIPTION IN PROCESS</span>
+            </div>
+          </div>
+
+          <!-- 3 大能力轉化卡片 -->
+          <div class="experience-perks">
+            <div class="perk-card">
+              <div class="perk-number">01</div>
+              <div class="perk-content">
+                <h4 class="perk-title">專注力培養 <span class="perk-en">Extreme Focus</span></h4>
+                <p class="perk-desc">在長時間高度集中狀態下精確辨別細微語音資訊，磨練出 3D 建模與精雕細節時持久的專注耐力。</p>
+              </div>
+            </div>
+
+            <div class="perk-card">
+              <div class="perk-number">02</div>
+              <div class="perk-content">
+                <h4 class="perk-title">高速輸入速度 <span class="perk-en">Speed & Precision</span></h4>
+                <p class="perk-desc">追求兼具極限速度與零失誤的雙手操作協調性，能快速記憶複雜軟體快捷鍵與高效率執行快捷工作流。</p>
+              </div>
+            </div>
+
+            <div class="perk-card">
+              <div class="perk-number">03</div>
+              <div class="perk-content">
+                <h4 class="perk-title">文書與整理能力 <span class="perk-en">Data Efficiency</span></h4>
+                <p class="perk-desc">提升組織邏輯架構與快速整理龐大資料的實務效能，使專案檔案命名、素材庫分類井然有序。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         區塊 6：與我聯絡 (CONTACT)
+         ========================================================================== -->
+    <section id="contact" class="contact-section section-padding">
+      <div class="container">
+        <div class="section-tag">06 // GET IN TOUCH</div>
+
+        <div class="contact-layout">
+          <!-- 左側文字與即時留言面板 -->
+          <div class="contact-lead-pane">
+            <h2 class="contact-callout">
+              期待與您交流<br>
+              <span class="text-gradient">歡迎洽詢合作與作品反饋</span>
+            </h2>
+
+            <p class="contact-subtext">
+              若您對我的 3D 模型製作、動畫專案或視覺設計感興趣，或有任何實習、專案合作邀約，歡迎隨時透過下方電子郵件或電話與我聯絡。
+            </p>
+
+            <!-- 快速傳遞留言卡 (互動表單) -->
+            <div class="quick-message-card">
+              <h3 class="quick-title">即時發送留言 / Quick Message</h3>
+              <form id="quickMessageForm" class="quick-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="senderName">您的稱呼 / Name</label>
+                    <input type="text" id="senderName" required placeholder="例如：林先生 / 藝術總監" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label for="senderContact">聯絡方式 / Email or Phone</label>
+                    <input type="text" id="senderContact" required placeholder="例如：yourname@email.com"
+                      class="form-input">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="senderMessage">留言內容 / Message</label>
+                  <textarea id="senderMessage" rows="3" required placeholder="請簡述您的合作需求、專案構想或作品反饋..."
+                    class="form-textarea"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                  <span>送出訊息</span>
+                  <span class="btn-arrow">✉</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 右側直接聯絡卡片 -->
+          <div class="contact-methods">
+            <!-- Email -->
+            <div class="contact-card">
+              <div class="contact-card-icon">✉</div>
+              <div class="contact-card-info">
+                <div class="contact-info-label">ELECTRONIC MAIL</div>
+                <div class="contact-value" id="emailText">acsjlfdh@gmail.com</div>
+                <div class="contact-note">隨時歡迎來信洽談，通常於 24 小時內回覆</div>
+              </div>
+              <div class="contact-card-action">
+                <button id="copyEmailBtn" class="contact-action-btn">
+                  <span class="btn-icon">📋</span>
+                  <span class="btn-text">複製信箱</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 電話 -->
+            <div class="contact-card">
+              <div class="contact-card-icon">☎</div>
+              <div class="contact-card-info">
+                <div class="contact-info-label">PHONE NUMBER</div>
+                <div class="contact-value">0910-666-000</div>
+                <div class="contact-note">平日與假日皆可來電洽談專案事宜</div>
+              </div>
+              <div class="contact-card-action">
+                <a href="tel:0910666000" class="contact-action-btn">
+                  <span class="btn-icon">📞</span>
+                  <span class="btn-text">立即通話</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 附加社群/平台徽章 -->
+            <div class="creative-badges-card">
+              <div class="badges-title">3D ARTIST PLATFORMS</div>
+              <div class="badges-row">
+                <span class="platform-chip">ArtStation Portfolio</span>
+                <span class="platform-chip">Behance</span>
+                <span class="platform-chip">Sketchfab 3D</span>
+                <span class="platform-chip">Instagram Art</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       作品全螢幕燈箱彈窗 (PORTFOLIO LIGHTBOX MODAL)
+       ========================================================================== -->
+  <div id="portfolioLightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-container">
+      <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="關閉預覽">✕</button>
+
+      <div class="lightbox-media-wrap">
+        <img id="lightboxImg" src="" alt="作品放大預覽">
+      </div>
+
+      <div class="lightbox-info-wrap">
+        <span id="lightboxTag" class="lightbox-tag">3D SCENE & LIGHTING</span>
+        <h3 id="lightboxTitle" class="lightbox-title">場景概念渲染</h3>
+        <p id="lightboxDesc" class="lightbox-desc">探索空間層次、環境光影漫射與氛圍營造，建構沉浸式的立體空間質感。</p>
+
+        <div class="lightbox-nav-btns">
+          <button id="lightboxPrevBtn" class="lightbox-nav-btn" aria-label="上一張作品">← 上一個作品</button>
+          <button id="lightboxNextBtn" class="lightbox-nav-btn" aria-label="下一張作品">下一個作品 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 訊息浮層 -->
+  <div id="toastNotification" class="toast-notification" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage" class="toast-message">信箱已成功複製！</span>
+  </div>
+
+  <!-- ==========================================================================
+       頁尾 (FOOTER)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <span class="footer-copyright">&copy; 2026 MULTIMEDIA ANIMATION PORTFOLIO. ALL RIGHTS RESERVED.</span>
+        <span class="footer-sub">3D MODELING · SCENE DESIGN · MULTIMEDIA ART</span>
+      </div>
+      <div>
+        <a href="#about" class="back-to-top" aria-label="平滑滾動回頁面頂部">
+          <span>回到頂部 TOP</span>
+          <span class="top-arrow">↑</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
